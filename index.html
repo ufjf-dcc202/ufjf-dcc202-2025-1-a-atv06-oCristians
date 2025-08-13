@@ -47,6 +47,12 @@
             }
             renderBoard(); // Atualiza a interface para mostrar o contorno
         }
+        function makeMove(from, to) {
+                layout[to] = layout[from];      // mover peça para nova posição
+                layout[from] = 0;               // limpar posição original
+                layout[(from + to) / 2] = 0;   // remover peça pulada
+            
+        }
 
         renderBoard();
     </script>
