@@ -54,6 +54,10 @@
                 layout[to] = layout[from];      // mover peça para nova posição
                 layout[from] = 0;               // limpar posição original
             }
+            if(layout == [2, 2, 2, 0, 1, 1, 1]){
+                alert("Você venceu!");
+                layout = [1, 1, 1, 0, 2, 2, 2];
+            }
                 
         
         }
