@@ -11,21 +11,41 @@
     <div id="board">
         
     </div>
+
     <script>
         // 1 = preta, 0 = vazio, 2 = branca
         let layout = [1, 1, 1, 0, 2, 2, 2];
+        let selected = null;
 
         function renderBoard() {
             const board = document.getElementById("board");
             board.innerHTML = "";
-            layout.forEach(block => {
+            layout.forEach((block, position) => {
                 const div = document.createElement("div");
                 div.classList.add("block");
-                if (block === 1) div.style.backgroundColor = "#4CAF50";
-                else if (block === 0) div.style.backgroundColor = "#FFFFFF";
-                else if (block === 2) div.style.backgroundColor = "#FF0000";
+
+                if (block === 1) div.style.backgroundColor = "black";
+                else if (block === 0) div.style.backgroundColor = "white";
+                else if (block === 2) div.style.backgroundColor = "lightgray";
+
+                if (selected === position) div.classList.add("selected");
+
+                div.addEventListener("click", () => {
+                    handleClick(position);
+                    console.log("clicou");
+                });
+
                 board.appendChild(div);
             });
+        }
+
+        function handleClick(pos) {
+            if (selected === null && layout[pos] !== 0) {
+                selected = pos;
+            } else {
+                selected = null;
+            }
+            renderBoard(); // Atualiza a interface para mostrar o contorno
         }
 
         renderBoard();
