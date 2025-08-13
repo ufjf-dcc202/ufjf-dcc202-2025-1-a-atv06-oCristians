@@ -41,11 +41,12 @@
 
         function handleClick(pos) {
             if (selected === null && layout[pos] !== 0) {
-                selected = pos;
-            } else {
-                selected = null;
+                selected = pos; // seleciona peça
+            } else if (selected !== null) {
+                makeMove(selected, pos); // faz movimento
+                selected = null; // limpa seleção
             }
-            renderBoard(); // Atualiza a interface para mostrar o contorno
+            renderBoard();
         }
         function makeMove(from, to) {
                 layout[to] = layout[from];      // mover peça para nova posição
