@@ -54,9 +54,13 @@
                 layout[to] = layout[from];      // mover peça para nova posição
                 layout[from] = 0;               // limpar posição original
             }
-            if(layout == [2, 2, 2, 0, 1, 1, 1]){
+            function arraysEqual(a, b) {
+                if (a.length !== b.length) return false;
+                return a.every((val, idx) => val === b[idx]);
+            }
+            const victoryLayout = [2, 2, 2, 0, 1, 1, 1];
+            if (arraysEqual(layout, victoryLayout)) {
                 alert("Você venceu!");
-                layout = [1, 1, 1, 0, 2, 2, 2];
             }
                 
         
