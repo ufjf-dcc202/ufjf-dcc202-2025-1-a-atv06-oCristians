@@ -49,9 +49,12 @@
             renderBoard();
         }
         function makeMove(from, to) {
+            if( layout[to] === 0)  // só pode mover para posição vazia
+            {
                 layout[to] = layout[from];      // mover peça para nova posição
                 layout[from] = 0;               // limpar posição original
-                layout[(from + to) / 2] = 0;   // remover peça pulada
+            }
+                
             
         }
 
