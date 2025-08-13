@@ -49,13 +49,13 @@
             renderBoard();
         }
         function makeMove(from, to) {
-            if( layout[to] === 0)  // só pode mover para posição vazia
+            if( layout[to] === 0 && Math.abs(from - to) != 3)  // para posicao vazia e 2 casas
             {
                 layout[to] = layout[from];      // mover peça para nova posição
                 layout[from] = 0;               // limpar posição original
             }
                 
-            
+        
         }
 
         renderBoard();
