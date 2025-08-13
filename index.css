@@ -4,6 +4,10 @@
         gap: 5px;
         justify-content: center;
         margin-top: 20px;
+        border: 2px solid black;
+        width: fit-content;
+        padding: 10px;
+
 }
 .block{
     width: 50px;
@@ -12,4 +16,9 @@
 }
 .selected {
     outline: 3px solid red;
+}
+.cointainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
